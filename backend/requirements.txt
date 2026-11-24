@@ -1,0 +1,13 @@
+Django>=5.0,<6.0
+djangorestframework>=3.15
+django-cors-headers>=4.3
+psycopg[binary]>=3.1
+redis>=5.0
+django-redis>=5.4
+python-dotenv>=1.0
+gunicorn>=22.0
+Pillow>=10.0
+celery>=5.4          # for future background tasks (grading queues etc.)
+drf-spectacular>=0.27  # OpenAPI / Swagger
+djangorestframework-simplejwt>=5.3
+django-filter>=24.0
