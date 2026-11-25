@@ -3,7 +3,8 @@ Base settings for EduExam SaaS.
 """
 import os
 from pathlib import Path
-from dotenv import load_dotenv # type: ignore
+
+from dotenv import load_dotenv  # type: ignore
 
 load_dotenv()
 
