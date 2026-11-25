@@ -35,11 +35,18 @@ INSTALLED_APPS = [
     "drf_spectacular",
     # Local
     "core",
+    "tenants",
+    "academics",
+    "exams",
+    "grading",
 ]
+
+AUTH_USER_MODEL = "tenants.User"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "tenants.middleware.TenantMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -134,4 +141,10 @@ CORS_ALLOW_ALL_ORIGINS = DEBUG
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+]
+
+# Allow the custom header the frontend sends for tenant resolution
+from corsheaders.defaults import default_headers  # noqa: E402
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "x-institution-slug",
 ]
